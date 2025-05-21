@@ -9,6 +9,11 @@ IKModule::IKModule(rclcpp::Node* node) {
     node->get_parameter("L4", L4);
     node->get_parameter("d1", d1);
     node->get_parameter("d2", d2);
+    node->get_parameter("offset_theta1", offset_angle.x());
+    node->get_parameter("offset_theta2", offset_angle.y());
+    node->get_parameter("offset_theta3", offset_angle.z());
+
+    offset_coord = forwardKinematics(offset_angle).block<3,1>(0,3);
 
     std::cerr << "[IK] L1: " << L1 << ", L2: " << L2 << ", L3: " << L3 << ", L4: " << L4 << "\n";
     std::cerr << "[IK] d1: " << d1 << ", d2: " << d2 << "\n";

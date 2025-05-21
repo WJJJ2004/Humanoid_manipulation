@@ -16,7 +16,11 @@ public:
   // EE workspace 내 존재 여부 판정
   bool isReachable(const Eigen::Vector3d& target_position, bool is_left_arm = false);
 
+  Eigen::Vector3d offset_coord;
+
 private:
+  Eigen::Vector3d offset_angle;
+
   double L1, L2, L3, L4, d1, d2;
 
   int Reachable_count = 0;

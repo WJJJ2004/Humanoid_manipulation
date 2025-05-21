@@ -108,7 +108,7 @@ void MainNode::mainLoop()
     case 1: // 팔 궤적 생성
       if (!trajectory_generated_) {
         double push_yaw = initial_yaw_ + M_PI / 2.0;  // 벽을 밀기 위해
-        trajectory_ = planner_.generateStraightPushTrajectory(current_target, push_yaw, 0.1, 20);
+        trajectory_ = planner_.generateStraightPushTrajectory(current_target,ik_module_->offset_coord, push_yaw, 20);
         trajectory_index_ = 0;
         trajectory_generated_ = true;
         RCLCPP_INFO(this->get_logger(), "Trajectory generated.");

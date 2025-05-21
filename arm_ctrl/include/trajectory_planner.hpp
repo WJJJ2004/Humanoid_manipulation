@@ -1,16 +1,25 @@
-#pragma once
+#ifndef ARM_CTRL__TRAJECTORY_PLANNER_HPP_
+#define ARM_CTRL__TRAJECTORY_PLANNER_HPP_
 
-#include <vector>
 #include <Eigen/Dense>
-#include "ik_module.hpp"
+#include <vector>
+#include <utility>
 
 class TrajectoryPlanner {
 public:
-    std::vector<Eigen::Vector3d> generateVerticalPushTrajectory(
-    const Eigen::Vector3d& target_point,
+  struct Coord2D {
+    double x;
+    double y;
+  };
+
+  std::vector<Eigen::Vector3d> generateStraightPushTrajectory(
+    const Eigen::Vector3d& target_coord,
+    const Eigen::Vector3d& offset_coord,
+    double push_yaw,
     int steps);
 
-private:
-  Eigen::Vector3d q_offset_;
-  std::shared_ptr<IKModule> ik_module_;
+  Coord2D projectOntoLineWithSlope(
+    double m, double x1, double y1, double x0, double y0);
 };
+
+#endif  // ARM_CTRL__TRAJECTORY_PLANNER_HPP_
