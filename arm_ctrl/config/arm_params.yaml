@@ -1,0 +1,11 @@
+main_node:
+  ros__parameters:
+    L1: 0.0675
+    L2: 0.05394
+    L3: 0.1262
+    L4: 0.14857
+    d1: 0.0455
+    d2: 0.0250
+    offset_theta1: 0.0
+    offset_theta2: 0.0
+    offset_theta3: 0.0

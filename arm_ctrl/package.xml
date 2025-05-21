@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>arm_ctrl</name>
+  <version>0.1.0</version>
+  <description>3DOF Arm controller with trajectory and IK handling</description>
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>Eigen3</build_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+  <build_depend>humanoid_interfaces</build_depend>
+  <build_depend>ament_cmake</build_depend>
+  <!-- <build_depend>memory</build_depend>
+  
+  <exec_depend>memory</exec_depend> -->
+  <exec_depend>ament_cmake</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>humanoid_interfaces</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>Eigen3</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

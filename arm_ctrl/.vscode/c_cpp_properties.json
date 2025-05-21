@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/lwj/colcon_ws/install/humanoid_interfaces/include/**",
+        "/home/lwj/colcon_ws/install/dynamixel_rdk_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/lwj/colcon_ws/src/arm_ctrl/include/**",
+        "/home/lwj/colcon_ws/src/dynamixel-RDK/dynamixel_rdk_ros/include/**",
+        "/home/lwj/colcon_ws/src/ebimu/include/**",
+        "/home/lwj/colcon_ws/src/ik_walk/include/**",
+        "/home/lwj/colcon_ws/src/tune_walk/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
