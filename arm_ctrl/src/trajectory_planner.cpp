@@ -1,38 +1,63 @@
 #include "trajectory_planner.hpp"
 #include <cmath>
 
+Eigen::Vector3d TrajectoryPlanner::cubicInterp(
+    const Eigen::Vector3d& p0, const Eigen::Vector3d& v0,
+    const Eigen::Vector3d& p1, const Eigen::Vector3d& v1,
+    double t)
+{
+    Eigen::Vector3d a0 = p0;
+    Eigen::Vector3d a1 = v0;
+    Eigen::Vector3d a2 = 3.0 * (p1 - p0) - 2.0 * v0 - v1;
+    Eigen::Vector3d a3 = 2.0 * (p0 - p1) + v0 + v1;
+    return a0 + a1 * t + a2 * t * t + a3 * t * t * t;
+}
+
 std::vector<Eigen::Vector3d> TrajectoryPlanner::generateStraightPushTrajectory(
     const Eigen::Vector3d& target_coord,
     const Eigen::Vector3d& offset_coord,
     double push_yaw,
-    int steps)
+    double duration,   // seconds
+    double dt)         // seconds per step
 {
-  std::vector<Eigen::Vector3d> path;
-  Coord2D projected_point = projectOntoLineWithSlope(
-      - std::tan(push_yaw), target_coord.x(),
-      target_coord.y(), offset_coord.x(), offset_coord.y());
+    std::vector<Eigen::Vector3d> path;
 
-  Eigen::Vector3d start_point = {projected_point.x,projected_point.y,target_coord.z()};
+    Coord2D projected_point = projectOntoLineWithSlope(
+        -std::tan(push_yaw), target_coord.x(),
+        target_coord.y(), offset_coord.x(), offset_coord.y());
 
-  double offset2start_length = size(offset_coord - start_point);
-  Eigen::Vector3d offset2start_unitVector = (start_point - offset_coord) / offset2start_length;
+    Eigen::Vector3d start_point(projected_point.x, projected_point.y, target_coord.z());
 
-  Eigen::Vector3d start2EE_unitVector(std::cos(push_yaw), std::sin(push_yaw), 0.0);
+    // 구간별 벡터 및 거리
+    Eigen::Vector3d offset2start = start_point - offset_coord;
+    Eigen::Vector3d start2target = target_coord - start_point;
 
-  double offset2start_stepSize = offset2start_length / static_cast<double>(steps);
-  double start2EE_stepSize = size(target_coord - start_point) / static_cast<double>(steps);
+    double len1 = offset2start.norm();
+    double len2 = start2target.norm();
 
-  for (int i = 0; i <= steps; ++i) // offset 지점 부터 start point 까지 선형 보간
-  {
-    path.push_back(offset_coord + offset2start_unitVector * offset2start_stepSize * i);
-  }
+    double v_mag = (len1 + len2) / duration;  // 평균 속도 (크기)
 
-  for (int i = 1; i <= steps; ++i)  // start point 부터 end point 까지 선형 보간
-  {
-    path.push_back(start_point + start2EE_unitVector * start2EE_stepSize * i);
-  }
+    Eigen::Vector3d v0 = offset2start.normalized() * v_mag;
+    Eigen::Vector3d v1 = start2target.normalized() * v_mag;
 
-  return path;
+    int steps = static_cast<int>(duration / dt);
+    double half_duration = duration / 2.0;
+
+    // offset2start (0 ≤ t ≤ 0.5)
+    for (int i = 0; i <= steps / 2; ++i) {
+        double t = static_cast<double>(i) / (steps / 2);  // normalize to [0,1]
+        Eigen::Vector3d p = cubicInterp(offset_coord, v0, start_point, v1, t);
+        path.push_back(p);
+    }
+
+    // start2target (0.5 ≤ t ≤ 1.0)
+    for (int i = 1; i <= steps / 2; ++i) {
+        double t = static_cast<double>(i) / (steps / 2);  // normalize to [0,1]
+        Eigen::Vector3d p = cubicInterp(start_point, v1, target_coord, Eigen::Vector3d::Zero(), t);
+        path.push_back(p);
+    }
+
+    return path;
 }
 
 TrajectoryPlanner::Coord2D TrajectoryPlanner::projectOntoLineWithSlope(

@@ -16,10 +16,16 @@ public:
     const Eigen::Vector3d& target_coord,
     const Eigen::Vector3d& offset_coord,
     double push_yaw,
-    int steps);
+    double duration,   // seconds
+    double dt);        // seconds per step
 
   Coord2D projectOntoLineWithSlope(
     double m, double x1, double y1, double x0, double y0);
+
+  Eigen::Vector3d cubicInterp(
+    const Eigen::Vector3d& p0, const Eigen::Vector3d& v0,
+    const Eigen::Vector3d& p1, const Eigen::Vector3d& v1,
+    double t);
 };
 
 #endif  // ARM_CTRL__TRAJECTORY_PLANNER_HPP_
