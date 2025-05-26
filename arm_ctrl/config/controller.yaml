@@ -1,0 +1,38 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: effort_controllers/JointTrajectoryController
+      joints:
+        - rotate_0
+        - rotate_1
+        - rotate_2
+        - rotate_3
+        - rotate_4
+        - rotate_5
+        - rotate_6
+        - rotate_7
+        - rotate_8
+        - rotate_9
+        - rotate_10
+        - rotate_11
+        - rotate_12
+        - rotate_13
+        - rotate_14
+        - rotate_15
+        - rotate_16
+        - rotate_17
+        - rotate_18
+        - rotate_19
+        - rotate_20
+        - rotate_21
+      interface_name: effort
+      command_interfaces:
+        - effort
+      state_interfaces:
+        - position
+        - velocity

@@ -1,0 +1,1073 @@
+<?xml version="1.0" ?>
+<robot name="robit_humanoid_offset_22DOF" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robit_humanoid_offset_22DOF_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robit_humanoid_offset_22DOF_description)/urdf/robit_humanoid_offset_22DOF.trans" />
+<xacro:include filename="$(find robit_humanoid_offset_22DOF_description)/urdf/robit_humanoid_offset_22DOF.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.8686704659900684 -0.12225178221029383 -0.3166063048759885" rpy="0 0 0"/>
+    <mass value="0.7575472164622242"/>
+    <inertia ixx="0.004242" iyy="0.005737" izz="0.005559" ixy="-2e-06" iyz="-0.000575" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_1_1">
+  <inertial>
+    <origin xyz="0.017028076208026932 0.020926648516215868 -0.015751572139332204" rpy="0 0 0"/>
+    <mass value="0.554105246676411"/>
+    <inertia ixx="0.000191" iyy="0.000126" izz="0.000223" ixy="-2e-06" iyz="-8e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.78262 0.187467 0.237925" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.78262 0.187467 0.237925" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_0_1">
+  <inertial>
+    <origin xyz="-0.017191337786963357 0.021127357019474907 -0.015299758735974472" rpy="0 0 0"/>
+    <mass value="0.5541052761471819"/>
+    <inertia ixx="0.000191" iyy="0.000126" izz="0.000222" ixy="2e-06" iyz="-9e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.955618 0.187467 0.238835" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.955618 0.187467 0.238835" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_0_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_12_1">
+  <inertial>
+    <origin xyz="-0.01707394332128609 0.018139780080411533 0.018853103619291822" rpy="0 0 0"/>
+    <mass value="0.5541053265332864"/>
+    <inertia ixx="0.000223" iyy="0.000126" izz="0.00019" ixy="-1e-06" iyz="-8e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.930474 0.147652 0.418178" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.930474 0.147652 0.418178" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_13_1">
+  <inertial>
+    <origin xyz="-0.01707369816831017 0.018139780067854078 0.01885252307943458" rpy="0 0 0"/>
+    <mass value="0.554105326533287"/>
+    <inertia ixx="0.000223" iyy="0.000126" izz="0.00019" ixy="-1e-06" iyz="-8e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.840475 0.147652 0.417704" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.840475 0.147652 0.417704" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_22_1">
+  <inertial>
+    <origin xyz="0.0150852798807658 0.01469623858131483 0.016166391724097395" rpy="0 0 0"/>
+    <mass value="0.33837900664078474"/>
+    <inertia ixx="9.5e-05" iyy="5.8e-05" izz="8.1e-05" ixy="-0.0" iyz="-1e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.853969 0.169212 0.266818" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_22_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.853969 0.169212 0.266818" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_22_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Head_1">
+  <inertial>
+    <origin xyz="0.0003136016932622221 -0.012661751483803496 0.057984005762357516" rpy="0 0 0"/>
+    <mass value="0.11392178679543014"/>
+    <inertia ixx="0.00011" iyy="0.000112" izz="6.2e-05" ixy="0.0" iyz="5e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.869131 0.155818 0.236012" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.869131 0.155818 0.236012" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_First_Set_R_1">
+  <inertial>
+    <origin xyz="-0.022323331142347302 -0.018827889184840824 -0.011031267434460257" rpy="0 0 0"/>
+    <mass value="0.049897110990033106"/>
+    <inertia ixx="2.9e-05" iyy="2.3e-05" izz="3e-05" ixy="-4e-06" iyz="-5e-06" ixz="-8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.779027 0.17213 0.255614" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_First_Set_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.779027 0.17213 0.255614" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_First_Set_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_First_Set_L_1">
+  <inertial>
+    <origin xyz="0.022207637719117268 -0.018833609842245164 -0.01124635126636464" rpy="0 0 0"/>
+    <mass value="0.049897110993500735"/>
+    <inertia ixx="2.9e-05" iyy="2.3e-05" izz="3e-05" ixy="3e-06" iyz="-5e-06" ixz="8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.959025 0.171906 0.256509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_First_Set_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.959025 0.171906 0.256509" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_First_Set_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_2_1">
+  <inertial>
+    <origin xyz="-2.560734038370427e-06 0.01878601292025242 -0.009956748164695328" rpy="0 0 0"/>
+    <mass value="0.3383780664042638"/>
+    <inertia ixx="9.5e-05" iyy="8.1e-05" izz="5.9e-05" ixy="-0.0" iyz="3e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.99489 0.19706 0.282317" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.99489 0.19706 0.282317" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_3_1">
+  <inertial>
+    <origin xyz="-8.128424702324999e-06 0.01878673559343269 -0.009957168449236109" rpy="0 0 0"/>
+    <mass value="0.3383780662889112"/>
+    <inertia ixx="9.5e-05" iyy="8.1e-05" izz="5.9e-05" ixy="-0.0" iyz="3e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.742893 0.197279 0.281062" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.742893 0.197279 0.281062" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_Mid_Set_R_1">
+  <inertial>
+    <origin xyz="0.01489417705266205 0.020021771357994406 -0.056821763453647534" rpy="0 0 0"/>
+    <mass value="0.031794528277008835"/>
+    <inertia ixx="3.3e-05" iyy="3.3e-05" izz="1.2e-05" ixy="0.0" iyz="2e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.727877 0.193445 0.293253" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_Mid_Set_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.727877 0.193445 0.293253" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_Mid_Set_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_Mid_Set_L_1">
+  <inertial>
+    <origin xyz="-0.01501406146390949 0.020032227929952684 -0.0567865989623183" rpy="0 0 0"/>
+    <mass value="0.03179452828169604"/>
+    <inertia ixx="3.3e-05" iyy="3.3e-05" izz="1.2e-05" ixy="0.0" iyz="2e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.00988 0.193237 0.294543" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_Mid_Set_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.00988 0.193237 0.294543" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_Mid_Set_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_4_1">
+  <inertial>
+    <origin xyz="-0.015090668086649717 0.015030399216186846 0.0003819046085602462" rpy="0 0 0"/>
+    <mass value="0.3383789909852501"/>
+    <inertia ixx="8.1e-05" iyy="9.5e-05" izz="5.9e-05" ixy="-0.0" iyz="3e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.009824 0.182935 0.412294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.009824 0.182935 0.412294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_5_1">
+  <inertial>
+    <origin xyz="0.01510315381589944 0.015020094798293276 0.0003456087560677057" rpy="0 0 0"/>
+    <mass value="0.33837899111351555"/>
+    <inertia ixx="8.1e-05" iyy="9.5e-05" izz="5.9e-05" ixy="0.0" iyz="3e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.727662 0.183143 0.411003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.727662 0.183143 0.411003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_End_set_R_1">
+  <inertial>
+    <origin xyz="0.018192637159496927 0.015261821188748359 -0.11925214012770607" rpy="0 0 0"/>
+    <mass value="0.10457651242145385"/>
+    <inertia ixx="0.000302" iyy="0.000288" izz="7.1e-05" ixy="-0.0" iyz="1.9e-05" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.724894 0.17182 0.423599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_End_set_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.724894 0.17182 0.423599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_End_set_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Arm_End_Set_L_1">
+  <inertial>
+    <origin xyz="-0.018324093128253005 0.015088736723597673 -0.11930920899394137" rpy="0 0 0"/>
+    <mass value="0.10397468487760392"/>
+    <inertia ixx="0.000302" iyy="0.000287" izz="7e-05" ixy="-0.0" iyz="1.9e-05" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.012563 0.171596 0.424914" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_End_Set_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.012563 0.171596 0.424914" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Arm_End_Set_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ABD_Part_Up_R_1">
+  <inertial>
+    <origin xyz="-5.000945271205204e-05 0.010566726907864421 -0.009087067631465107" rpy="0 0 0"/>
+    <mass value="0.04869080708896628"/>
+    <inertia ixx="2.8e-05" iyy="1.7e-05" izz="2.7e-05" ixy="0.0" iyz="5e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.823167 0.147884 0.424283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Part_Up_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.823167 0.147884 0.424283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Part_Up_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ABD_Part_Up_L_1">
+  <inertial>
+    <origin xyz="-4.925460568805384e-05 0.010566726920422126 -0.009087487091607616" rpy="0 0 0"/>
+    <mass value="0.04869080708896628"/>
+    <inertia ixx="2.8e-05" iyy="1.7e-05" izz="2.7e-05" ixy="0.0" iyz="5e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.913165 0.147884 0.424756" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Part_Up_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.913165 0.147884 0.424756" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Part_Up_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_11_1">
+  <inertial>
+    <origin xyz="0.017284038088199227 0.015327435579178122 0.02103155268758483" rpy="0 0 0"/>
+    <mass value="0.5541053434876537"/>
+    <inertia ixx="0.000223" iyy="0.000191" izz="0.000126" ixy="-0.0" iyz="4e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.805637 0.094727 0.465382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.805637 0.094727 0.465382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_10_1">
+  <inertial>
+    <origin xyz="0.01728379293522342 0.0153274355917358 0.0210311332274421" rpy="0 0 0"/>
+    <mass value="0.5541053434876543"/>
+    <inertia ixx="0.000223" iyy="0.000191" izz="0.000126" ixy="-0.0" iyz="4e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.895636 0.094727 0.465855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.895636 0.094727 0.465855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ABD_Roll_L_1">
+  <inertial>
+    <origin xyz="0.0028714747005363916 -0.004690434506536417 -0.006634093423106224" rpy="0 0 0"/>
+    <mass value="0.023473134328333187"/>
+    <inertia ixx="1e-05" iyy="7e-06" izz="5e-06" ixy="1e-06" iyz="-3e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.912891 0.106944 0.469434" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.912891 0.106944 0.469434" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ABD_Roll_R_1">
+  <inertial>
+    <origin xyz="-0.0027266326508511574 -0.004686458119291248 -0.006649691260913082" rpy="0 0 0"/>
+    <mass value="0.023473128335311236"/>
+    <inertia ixx="1e-05" iyy="7e-06" izz="5e-06" ixy="-1e-06" iyz="-3e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.822892 0.106944 0.468961" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.822892 0.106944 0.468961" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_15_1">
+  <inertial>
+    <origin xyz="0.019615388092973474 -0.013524891129044536 0.027935772628569777" rpy="0 0 0"/>
+    <mass value="0.6889798589115284"/>
+    <inertia ixx="0.000258" iyy="0.000333" izz="0.000191" ixy="1e-06" iyz="1.3e-05" ixz="-1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.804251 0.125733 0.488927" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.804251 0.125733 0.488927" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_14_1">
+  <inertial>
+    <origin xyz="-0.019936554904438464 0.008487615323395231 0.029641272504702" rpy="0 0 0"/>
+    <mass value="0.6889805514559392"/>
+    <inertia ixx="0.000258" iyy="0.000333" izz="0.000191" ixy="-1e-06" iyz="1.2e-05" ixz="1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.931763 0.147682 0.491133" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.931763 0.147682 0.491133" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Right_Upper_Leg_R_1">
+  <inertial>
+    <origin xyz="0.014756186930879212 -0.032908726633636975 -0.058847239524641826" rpy="0 0 0"/>
+    <mass value="0.04892624295768373"/>
+    <inertia ixx="6.5e-05" iyy="7e-05" izz="5.4e-05" ixy="-5e-06" iyz="-2.6e-05" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.801333 0.147424 0.444421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Right_Upper_Leg_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.801333 0.147424 0.444421" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Right_Upper_Leg_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Right_Upper_Leg_L_1">
+  <inertial>
+    <origin xyz="-0.016058551819024047 -0.03288417305413277 -0.059412230577435554" rpy="0 0 0"/>
+    <mass value="0.048926242957685655"/>
+    <inertia ixx="6.5e-05" iyy="7e-05" izz="5.4e-05" ixy="6e-06" iyz="-2.6e-05" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.934094 0.147345 0.444679" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Right_Upper_Leg_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.934094 0.147345 0.444679" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Right_Upper_Leg_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_17_1">
+  <inertial>
+    <origin xyz="-0.02122079143254263 0.020243198070698964 -0.018073818936494512" rpy="0 0 0"/>
+    <mass value="0.6889798227972256"/>
+    <inertia ixx="0.000256" iyy="0.000331" izz="0.000194" ixy="3e-06" iyz="2e-05" ixz="-1.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.826688 0.215592 0.540105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.826688 0.215592 0.540105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_16_1">
+  <inertial>
+    <origin xyz="0.021815460046025748 -0.01411048605908305 -0.02262191023225335" rpy="0 0 0"/>
+    <mass value="0.688979537589562"/>
+    <inertia ixx="0.000256" iyy="0.000331" izz="0.000195" ixy="-3e-06" iyz="1.9e-05" ixz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.907415 0.181202 0.536267" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.907415 0.181202 0.536267" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lower_Leg_R_1">
+  <inertial>
+    <origin xyz="0.012859586416372748 0.04433791144880847 -0.06765868622153781" rpy="0 0 0"/>
+    <mass value="0.037747111133187655"/>
+    <inertia ixx="6.8e-05" iyy="8.1e-05" izz="3.8e-05" ixy="4e-06" iyz="2.2e-05" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.776891 0.21095 0.566728" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Lower_Leg_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.776891 0.21095 0.566728" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Lower_Leg_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lower_Leg_L_1">
+  <inertial>
+    <origin xyz="-0.012093042120833508 0.04431275586741573 -0.06779624316738853" rpy="0 0 0"/>
+    <mass value="0.03774711113318721"/>
+    <inertia ixx="6.8e-05" iyy="8.1e-05" izz="3.8e-05" ixy="-4e-06" iyz="2.2e-05" ixz="7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.957933 0.210937 0.567125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Lower_Leg_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.957933 0.210937 0.567125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Lower_Leg_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_19_1">
+  <inertial>
+    <origin xyz="0.028577477582532707 0.0004492334398361886 0.010114640977875955" rpy="0 0 0"/>
+    <mass value="0.6889798227036441"/>
+    <inertia ixx="0.000256" iyy="0.000334" izz="0.000192" ixy="-1e-06" iyz="0.0" ixz="-1.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.750813 0.139152 0.694439" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.750813 0.139152 0.694439" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_18_1">
+  <inertial>
+    <origin xyz="-0.028685457869356612 0.0005212612570756336 0.009799758174139028" rpy="0 0 0"/>
+    <mass value="0.6889795376297454"/>
+    <inertia ixx="0.000256" iyy="0.000334" izz="0.000192" ixy="1e-06" iyz="-0.0" ixz="1.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.985484 0.139238 0.694542" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.985484 0.139238 0.694542" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ABD_Roll_lower_R_1">
+  <inertial>
+    <origin xyz="0.008928769011485871 0.03740333720743898 -0.019665367479363316" rpy="0 0 0"/>
+    <mass value="0.023474555796662477"/>
+    <inertia ixx="1.1e-05" iyy="8e-06" izz="6e-06" ixy="1e-06" iyz="4e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.772585 0.149905 0.650027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_lower_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.772585 0.149905 0.650027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_lower_R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ABD_Roll_lower_L_1">
+  <inertial>
+    <origin xyz="-0.008641671084632763 0.03742046824828363 -0.019762485908743188" rpy="0 0 0"/>
+    <mass value="0.023474555796669207"/>
+    <inertia ixx="1.1e-05" iyy="8e-06" izz="6e-06" ixy="-1e-06" iyz="4e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.963203 0.149872 0.650354" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_lower_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.963203 0.149872 0.650354" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/ABD_Roll_lower_L_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_20_1">
+  <inertial>
+    <origin xyz="0.00038774366257809945 0.02063640705055038 -0.015555494265389491" rpy="0 0 0"/>
+    <mass value="0.5541053259460103"/>
+    <inertia ixx="0.000223" iyy="0.000191" izz="0.000126" ixy="-1e-06" iyz="2e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.958086 0.098261 0.686299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.958086 0.098261 0.686299" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="MX_21_1">
+  <inertial>
+    <origin xyz="0.001388581542334122 0.020662114421751268 -0.015463551750032889" rpy="0 0 0"/>
+    <mass value="0.5541053307315932"/>
+    <inertia ixx="0.000222" iyy="0.000191" izz="0.000127" ixy="0.0" iyz="2e-06" ixz="1.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.778193 0.098304 0.685912" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.778193 0.098304 0.685912" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/MX_21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Right_Foot_ABD_1">
+  <inertial>
+    <origin xyz="0.007016044539544741 -0.03900559113247545 -0.040159109867077936" rpy="0 0 0"/>
+    <mass value="0.3034904167532816"/>
+    <inertia ixx="0.001116" iyy="0.000226" izz="0.001287" ixy="1.5e-05" iyz="3e-05" ixz="-9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.762942 0.095024 0.705716" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Right_Foot_ABD_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.762942 0.095024 0.705716" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Right_Foot_ABD_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Left_Foot_ABD_1">
+  <inertial>
+    <origin xyz="-0.006321169550938088 -0.038998960695007176 -0.04028376040562687" rpy="0 0 0"/>
+    <mass value="0.30349095742393284"/>
+    <inertia ixx="0.001116" iyy="0.000226" izz="0.001287" ixy="-1.7e-05" iyz="3e-05" ixz="5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.975456 0.095047 0.704286" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Left_Foot_ABD_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.975456 0.095047 0.704286" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robit_humanoid_offset_22DOF_description)/meshes/Left_Foot_ABD_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="DXL_1" type="fixed">
+  <origin xyz="0.78262 -0.187467 -0.237925" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="MX_1_1"/>
+</joint>
+
+<joint name="DXL_0" type="fixed">
+  <origin xyz="0.955618 -0.187467 -0.238835" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="MX_0_1"/>
+</joint>
+
+<joint name="DXL_12" type="fixed">
+  <origin xyz="0.930474 -0.147652 -0.418178" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="MX_12_1"/>
+</joint>
+
+<joint name="DXL_13" type="fixed">
+  <origin xyz="0.840475 -0.147652 -0.417704" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="MX_13_1"/>
+</joint>
+
+<joint name="DXL_22" type="fixed">
+  <origin xyz="0.853969 -0.169212 -0.266818" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="MX_22_1"/>
+</joint>
+
+<joint name="rotate_22" type="continuous">
+  <origin xyz="0.015162 0.013394 0.030806" rpy="0 0 0"/>
+  <parent link="MX_22_1"/>
+  <child link="Head_1"/>
+  <axis xyz="0.00526 -1e-06 0.999986"/>
+</joint>
+
+<joint name="rotate_1" type="continuous">
+  <origin xyz="-0.003593 0.015337 -0.017689" rpy="0 0 0"/>
+  <parent link="MX_1_1"/>
+  <child link="Arm_First_Set_R_1"/>
+  <axis xyz="-0.999986 -0.0 0.00526"/>
+</joint>
+
+<joint name="rotate_0" type="continuous">
+  <origin xyz="0.003407 0.015561 -0.017674" rpy="0 0 0"/>
+  <parent link="MX_0_1"/>
+  <child link="Arm_First_Set_L_1"/>
+  <axis xyz="0.999986 0.0 -0.00526"/>
+</joint>
+
+<joint name="rotate_2" type="continuous">
+  <origin xyz="0.035865 -0.025154 -0.025808" rpy="0 0 0"/>
+  <parent link="Arm_First_Set_L_1"/>
+  <child link="MX_2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rotate_3" type="continuous">
+  <origin xyz="-0.036134 -0.025149 -0.025448" rpy="0 0 0"/>
+  <parent link="Arm_First_Set_R_1"/>
+  <child link="MX_3_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="DXL_3" type="fixed">
+  <origin xyz="-0.015016 0.003834 -0.012191" rpy="0 0 0"/>
+  <parent link="MX_3_1"/>
+  <child link="Arm_Mid_Set_R_1"/>
+</joint>
+
+<joint name="DXL_2" type="fixed">
+  <origin xyz="0.01499 0.003823 -0.012226" rpy="0 0 0"/>
+  <parent link="MX_2_1"/>
+  <child link="Arm_Mid_Set_L_1"/>
+</joint>
+
+<joint name="DXL_4" type="fixed">
+  <origin xyz="-5.6e-05 0.010302 -0.117751" rpy="0 0 0"/>
+  <parent link="Arm_Mid_Set_L_1"/>
+  <child link="MX_4_1"/>
+</joint>
+
+<joint name="DXL_5" type="fixed">
+  <origin xyz="-0.000215 0.010302 -0.11775" rpy="0 0 0"/>
+  <parent link="Arm_Mid_Set_R_1"/>
+  <child link="MX_5_1"/>
+</joint>
+
+<joint name="rotate_5" type="continuous">
+  <origin xyz="-0.002768 0.011323 -0.012596" rpy="0 0 0"/>
+  <parent link="MX_5_1"/>
+  <child link="Arm_End_set_R_1"/>
+  <axis xyz="-0.999999 0.0 0.00141"/>
+</joint>
+
+<joint name="rotate_4" type="continuous">
+  <origin xyz="0.002739 0.011339 -0.01262" rpy="0 0 0"/>
+  <parent link="MX_4_1"/>
+  <child link="Arm_End_Set_L_1"/>
+  <axis xyz="1.0 -0.0 -0.00091"/>
+</joint>
+
+<joint name="rotate_13" type="continuous">
+  <origin xyz="-0.017308 -0.000232 -0.006579" rpy="0 0 0"/>
+  <parent link="MX_13_1"/>
+  <child link="ABD_Part_Up_R_1"/>
+  <axis xyz="-0.00526 1e-06 -0.999986"/>
+</joint>
+
+<joint name="rotate_12" type="continuous">
+  <origin xyz="-0.017309 -0.000232 -0.006578" rpy="0 0 0"/>
+  <parent link="MX_12_1"/>
+  <child link="ABD_Part_Up_L_1"/>
+  <axis xyz="-0.00526 1e-06 -0.999986"/>
+</joint>
+
+<joint name="DXL_11" type="fixed">
+  <origin xyz="-0.01753 0.053157 -0.041099" rpy="0 0 0"/>
+  <parent link="ABD_Part_Up_R_1"/>
+  <child link="MX_11_1"/>
+</joint>
+
+<joint name="DXL_10" type="fixed">
+  <origin xyz="-0.017529 0.053157 -0.041099" rpy="0 0 0"/>
+  <parent link="ABD_Part_Up_L_1"/>
+  <child link="MX_10_1"/>
+</joint>
+
+<joint name="rotate_10" type="continuous">
+  <origin xyz="0.017255 -0.012217 -0.003579" rpy="0 0 0"/>
+  <parent link="MX_10_1"/>
+  <child link="ABD_Roll_L_1"/>
+  <axis xyz="0.0 -1.0 -1e-06"/>
+</joint>
+
+<joint name="rotate_11" type="continuous">
+  <origin xyz="0.017255 -0.012217 -0.003579" rpy="0 0 0"/>
+  <parent link="MX_11_1"/>
+  <child link="ABD_Roll_R_1"/>
+  <axis xyz="0.0 -1.0 -1e-06"/>
+</joint>
+
+<joint name="DXL_15" type="fixed">
+  <origin xyz="-0.018641 -0.018789 -0.019966" rpy="0 0 0"/>
+  <parent link="ABD_Roll_R_1"/>
+  <child link="MX_15_1"/>
+</joint>
+
+<joint name="DXL_14" type="fixed">
+  <origin xyz="0.018872 -0.040738 -0.021699" rpy="0 0 0"/>
+  <parent link="ABD_Roll_L_1"/>
+  <child link="MX_14_1"/>
+</joint>
+
+<joint name="rotate_15" type="continuous">
+  <origin xyz="-0.002918 -0.021691 0.044506" rpy="0 0 0"/>
+  <parent link="MX_15_1"/>
+  <child link="Right_Upper_Leg_R_1"/>
+  <axis xyz="-0.98061 -0.0 0.19597"/>
+</joint>
+
+<joint name="rotate_14" type="continuous">
+  <origin xyz="0.002331 0.000337 0.046454" rpy="0 0 0"/>
+  <parent link="MX_14_1"/>
+  <child link="Right_Upper_Leg_L_1"/>
+  <axis xyz="0.978381 -0.0 0.206812"/>
+</joint>
+
+<joint name="DXL_17" type="fixed">
+  <origin xyz="0.025355 -0.068168 -0.095684" rpy="0 0 0"/>
+  <parent link="Right_Upper_Leg_R_1"/>
+  <child link="MX_17_1"/>
+</joint>
+
+<joint name="DXL_16" type="fixed">
+  <origin xyz="-0.026679 -0.033857 -0.091588" rpy="0 0 0"/>
+  <parent link="Right_Upper_Leg_L_1"/>
+  <child link="MX_16_1"/>
+</joint>
+
+<joint name="rotate_17" type="continuous">
+  <origin xyz="-0.049797 0.004642 -0.026623" rpy="0 0 0"/>
+  <parent link="MX_17_1"/>
+  <child link="Lower_Leg_R_1"/>
+  <axis xyz="-0.98061 -0.0 0.19597"/>
+</joint>
+
+<joint name="rotate_16" type="continuous">
+  <origin xyz="0.050518 -0.029735 -0.030858" rpy="0 0 0"/>
+  <parent link="MX_16_1"/>
+  <child link="Lower_Leg_L_1"/>
+  <axis xyz="0.978381 -0.0 0.206812"/>
+</joint>
+
+<joint name="rotate_19" type="continuous">
+  <origin xyz="-0.026078 0.071798 -0.127711" rpy="0 0 0"/>
+  <parent link="Lower_Leg_R_1"/>
+  <child link="MX_19_1"/>
+  <axis xyz="-0.98061 -0.0 0.19597"/>
+</joint>
+
+<joint name="rotate_18" type="continuous">
+  <origin xyz="0.027551 0.071699 -0.127417" rpy="0 0 0"/>
+  <parent link="Lower_Leg_L_1"/>
+  <child link="MX_18_1"/>
+  <axis xyz="-0.978381 0.0 -0.206812"/>
+</joint>
+
+<joint name="DXL_19" type="fixed">
+  <origin xyz="0.021772 -0.010753 0.044412" rpy="0 0 0"/>
+  <parent link="MX_19_1"/>
+  <child link="ABD_Roll_lower_R_1"/>
+</joint>
+
+<joint name="DXL_18" type="fixed">
+  <origin xyz="-0.022281 -0.010634 0.044188" rpy="0 0 0"/>
+  <parent link="MX_18_1"/>
+  <child link="ABD_Roll_lower_L_1"/>
+</joint>
+
+<joint name="rotate_20" type="continuous">
+  <origin xyz="-0.005117 0.051611 -0.035945" rpy="0 0 0"/>
+  <parent link="ABD_Roll_lower_L_1"/>
+  <child link="MX_20_1"/>
+  <axis xyz="0.018025 0.996195 -0.085271"/>
+</joint>
+
+<joint name="rotate_21" type="continuous">
+  <origin xyz="0.005608 0.051601 -0.035885" rpy="0 0 0"/>
+  <parent link="ABD_Roll_lower_R_1"/>
+  <child link="MX_21_1"/>
+  <axis xyz="0.01708 -0.996195 0.085465"/>
+</joint>
+
+<joint name="DXL_21" type="fixed">
+  <origin xyz="-0.015251 0.00328 -0.019804" rpy="0 0 0"/>
+  <parent link="MX_21_1"/>
+  <child link="Right_Foot_ABD_1"/>
+</joint>
+
+<joint name="DXL_20" type="fixed">
+  <origin xyz="0.01737 0.003214 -0.017987" rpy="0 0 0"/>
+  <parent link="MX_20_1"/>
+  <child link="Left_Foot_ABD_1"/>
+</joint>
+
+</robot>

@@ -1,7 +1,7 @@
-float64 revolute_0
-float64 revolute_1
-float64 revolute_2
+float64 rotate_0
+float64 rotate_1
+float64 rotate_2
 
-float64 revolute_3
-float64 revolute_4
-float64 revolute_5
+float64 rotate_3
+float64 rotate_4
+float64 rotate_5

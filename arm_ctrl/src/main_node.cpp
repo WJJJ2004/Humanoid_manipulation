@@ -22,6 +22,9 @@ MainNode::MainNode()
 
   ik_pub_ = this->create_publisher<humanoid_interfaces::msg::Master2IkMsg>("/master_to_ik", 10);
   joint_angle_pub_ = this->create_publisher<arm_ctrl::msg::ArmJointAngle>("/joint_angle_cmd", 10);
+  traj_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
+    "/arm_controller/joint_trajectory", 10);
+
 
   imu_sub_ = this->create_subscription<humanoid_interfaces::msg::ImuMsg>(
     "/imu_data", 10, std::bind(&MainNode::imuCallback, this, _1));
@@ -60,6 +63,53 @@ void MainNode::flagCallback(const arm_ctrl::msg::ArmCtrlFlag::SharedPtr msg)
   is_master_ready_ = msg->is_master_ready;
   RCLCPP_INFO(this->get_logger(), "Master Ready: %d", is_master_ready_);
 }
+
+void MainNode::publishJointCommands(const Eigen::Vector3d &q, bool is_left_arm)
+{
+  // 사용자 정의 메시지
+  arm_ctrl::msg::ArmJointAngle angle_msg;
+  // 시뮬레이터 메시지
+  trajectory_msgs::msg::JointTrajectory sim_msg;
+
+  sim_msg.joint_names = {
+    "rotate_0", "rotate_1", "rotate_2", "rotate_3", "rotate_4", "rotate_5",
+    "rotate_6", "rotate_7", "rotate_8", "rotate_9", "rotate_10", "rotate_11",
+    "rotate_12", "rotate_13", "rotate_14", "rotate_15", "rotate_16", "rotate_17",
+    "rotate_18", "rotate_19", "rotate_20", "rotate_21"
+  };
+
+  trajectory_msgs::msg::JointTrajectoryPoint traj_point;
+  traj_point.positions.resize(22, 0.0);
+
+  if (is_left_arm) {
+    angle_msg.rotate_0 = -1.0 * q(0);
+    angle_msg.rotate_2 = -1.0 * q(1);
+    angle_msg.rotate_4 = -1.0 * q(2);
+
+    angle_msg.rotate_1 = angle_msg.rotate_3 = angle_msg.rotate_5 = 0.0;
+
+    traj_point.positions[0] = angle_msg.rotate_0;
+    traj_point.positions[2] = angle_msg.rotate_2;
+    traj_point.positions[4] = angle_msg.rotate_4;
+  } else {
+    angle_msg.rotate_0 = angle_msg.rotate_2 = angle_msg.rotate_4 = 0.0;
+
+    angle_msg.rotate_1 = q(0);
+    angle_msg.rotate_3 = q(1);
+    angle_msg.rotate_5 = q(2);
+
+    traj_point.positions[1] = angle_msg.rotate_1;
+    traj_point.positions[3] = angle_msg.rotate_3;
+    traj_point.positions[5] = angle_msg.rotate_5;
+  }
+
+  traj_point.time_from_start = rclcpp::Duration::from_seconds(0.1);
+  sim_msg.points.push_back(traj_point);
+
+  joint_angle_pub_->publish(angle_msg);
+  traj_pub_->publish(sim_msg);
+}
+
 
 void MainNode::mainLoop()
 {
@@ -134,45 +184,21 @@ void MainNode::mainLoop()
       cout << "Ready to Manipulate" << endl;
       if (trajectory_index_ < trajectory_.size())
       {
-        auto point = trajectory_[trajectory_index_++]; // 데이터 타입 = Eigen::Vector3d
-        auto q_opt = ik_module_->computeIK(point, is_left_arm); // optional data type
+        auto point = trajectory_[trajectory_index_++]; // Eigen::Vector3d
+        auto q_opt = ik_module_->computeIK(point, is_left_arm); // optional
 
         if (q_opt.has_value())
         {
-          auto q = q_opt.value();
-          arm_ctrl::msg::ArmJointAngle msg;
-          if(is_left_arm)
-          {
-            msg.revolute_0 = -1.0 * q(0);
-            msg.revolute_2 = -1.0 * q(1);
-            msg.revolute_4 = -1.0 * q(2);
-
-            msg.revolute_1 = 0.0;
-            msg.revolute_3 = 0.0;
-            msg.revolute_5 = 0.0;
-
-            cout << "\033[1;31m" << endl;
-            cout << "Left arm Angle cmd Pub ..." << endl;
-            cout << "revolute_0: " << msg.revolute_0 << "\nrevolute_2" << msg.revolute_2 << "\nrevolute_4" << msg.revolute_4 << endl;
-            cout << "\033[0m" << endl;
-          }
-          else
-          {
-            msg.revolute_0 = 0.0;
-            msg.revolute_2 = 0.0;
-            msg.revolute_4 = 0.0;
-
-            msg.revolute_1 = q(0);
-            msg.revolute_3 = q(1);
-            msg.revolute_5 = q(2);
-
-            cout << "\033[1;34m" << endl;
-            cout << "Right arm Angle cmd Pub ..." << endl;
-            cout << "revolute_1: " << msg.revolute_1 << "\nrevolute_3" << msg.revolute_3 << "\nrevolute_5" << msg.revolute_5 << endl;
-            cout << "\033[0m" << endl;
-          }
-          joint_angle_pub_->publish(msg);
+          publishJointCommands(q_opt.value(), is_left_arm);
+          RCLCPP_INFO(this->get_logger(), "Publishing joint commands: (%f, %f, %f)"
+                                        , q_opt->x(), q_opt->y(), q_opt->z());
         }
+      }
+      else
+      {
+        RCLCPP_INFO(this->get_logger(), "Trajectory completed.");
+        trajectory_generated_ = false;
+        loop_squence = 0;
       }
       break;
     default:

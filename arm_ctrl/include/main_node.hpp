@@ -8,6 +8,8 @@
 #include <arm_ctrl/msg/arm_joint_angle.hpp>
 #include <humanoid_interfaces/msg/master2_ik_msg.hpp>
 #include <humanoid_interfaces/msg/imu_msg.hpp>
+#include "trajectory_msgs/msg/joint_trajectory.hpp"
+#include "trajectory_msgs/msg/joint_trajectory_point.hpp"
 #include "ik_module.hpp"
 #include "trajectory_planner.hpp"
 #include <chrono>
@@ -33,6 +35,7 @@ private:
   // Publishers
   rclcpp::Publisher<humanoid_interfaces::msg::Master2IkMsg>::SharedPtr ik_pub_;
   rclcpp::Publisher<arm_ctrl::msg::ArmJointAngle>::SharedPtr joint_angle_pub_;
+  rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr traj_pub_;
 
   // Timer
   rclcpp::TimerBase::SharedPtr timer_;
@@ -50,6 +53,8 @@ private:
 
   // main loop
   int loop_squence = 0;
+
+  void publishJointCommands(const Eigen::Vector3d &q, bool is_left_arm);
 
   void pub_walk_cmd(double x, double y, double yaw,bool flag = true)
   {
