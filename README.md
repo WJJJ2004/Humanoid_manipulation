@@ -14,6 +14,7 @@
   - `arm_params.yaml`: IK 파라미터
   - `controller.yaml`: Gazebo용 controller 설정
  - **트리**
+'''
 	├── CMakeLists.txt
 	├── config
 	│   ├── arm_params.yaml
@@ -37,7 +38,7 @@
 
 	5 directories, 15 files
 
-
+'''
 ### 2. `robit_humanoid_offset_22DOF_description`
 - **기능**: 22자유도 로봇 URDF 및 Gazebo 시뮬레이션 구성
 - **구성**:
@@ -45,6 +46,7 @@
   - `meshes/`: STL 파일 포함
   - `launch/gazebo.launch.py`: Gazebo 환경 설정
 - **tree**
+  '''
 	├── config
 	│   └── display.rviz
 	├── launch
@@ -109,7 +111,7 @@
 
 	7 directories, 54 files
 
-
+'''
 ## 🧠 주요 기능 설명
 
 - **EE 목표 지정 → IK 계산 → 조인트 명령 생성 → Gazebo 시각화**까지 일련의 흐름 자동화
