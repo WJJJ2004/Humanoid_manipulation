@@ -10,6 +10,7 @@
 #include <humanoid_interfaces/msg/imu_msg.hpp>
 #include "trajectory_msgs/msg/joint_trajectory.hpp"
 #include "trajectory_msgs/msg/joint_trajectory_point.hpp"
+#include "sensor_msgs/msg/joint_state.hpp"
 #include "ik_module.hpp"
 #include "trajectory_planner.hpp"
 #include <chrono>
@@ -36,6 +37,7 @@ private:
   rclcpp::Publisher<humanoid_interfaces::msg::Master2IkMsg>::SharedPtr ik_pub_;
   rclcpp::Publisher<arm_ctrl::msg::ArmJointAngle>::SharedPtr joint_angle_pub_;
   rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr traj_pub_;
+  rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_pub_;
 
   // Timer
   rclcpp::TimerBase::SharedPtr timer_;

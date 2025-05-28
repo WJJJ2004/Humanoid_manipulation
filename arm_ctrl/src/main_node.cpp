@@ -10,12 +10,12 @@ MainNode::MainNode()
   is_master_ready_(false), imu_yaw_set_(false), ee_received_(false),
   trajectory_index_(0), trajectory_generated_(false)
 {
-  this->declare_parameter<double>("L1", 0.0);
-  this->declare_parameter<double>("L2", 0.0);
-  this->declare_parameter<double>("L3", 0.0);
-  this->declare_parameter<double>("L4", 0.0);
-  this->declare_parameter<double>("d1", 0.0);
-  this->declare_parameter<double>("d2", 0.0);
+  this->declare_parameter<double>("L1", 6.75);
+  this->declare_parameter<double>("L2", 53.94);
+  this->declare_parameter<double>("L3", 126.20);
+  this->declare_parameter<double>("L4", 148.57);
+  this->declare_parameter<double>("d1", 45.50);
+  this->declare_parameter<double>("d2", 25.00);
   this->declare_parameter<double>("offset_theta1", 0.0);
   this->declare_parameter<double>("offset_theta2", 0.0);
   this->declare_parameter<double>("offset_theta3", 0.0);
@@ -24,6 +24,8 @@ MainNode::MainNode()
   joint_angle_pub_ = this->create_publisher<arm_ctrl::msg::ArmJointAngle>("/joint_angle_cmd", 10);
   traj_pub_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
     "/arm_controller/joint_trajectory", 10);
+  joint_state_pub_ = this->create_publisher<sensor_msgs::msg::JointState>(
+    "/joint_states", 10);
 
 
   imu_sub_ = this->create_subscription<humanoid_interfaces::msg::ImuMsg>(
@@ -69,18 +71,26 @@ void MainNode::publishJointCommands(const Eigen::Vector3d &q, bool is_left_arm)
   // 사용자 정의 메시지
   arm_ctrl::msg::ArmJointAngle angle_msg;
   // 시뮬레이터 메시지
-  trajectory_msgs::msg::JointTrajectory sim_msg;
+  trajectory_msgs::msg::JointTrajectory gazebo_msg;
+  // RViz 시각화용 메시지
+  sensor_msgs::msg::JointState rviz_msg;
+  rviz_msg.header.stamp = this->get_clock()->now();
 
-  sim_msg.joint_names = {
+  // 조인트 이름 지정
+  rviz_msg.name = {
     "rotate_0", "rotate_1", "rotate_2", "rotate_3", "rotate_4", "rotate_5",
     "rotate_6", "rotate_7", "rotate_8", "rotate_9", "rotate_10", "rotate_11",
     "rotate_12", "rotate_13", "rotate_14", "rotate_15", "rotate_16", "rotate_17",
     "rotate_18", "rotate_19", "rotate_20", "rotate_21"
   };
 
+  gazebo_msg.joint_names = rviz_msg.name;
+
+  // Trajectory 메시지 초기화
   trajectory_msgs::msg::JointTrajectoryPoint traj_point;
   traj_point.positions.resize(22, 0.0);
 
+  // 조인트 각도 설정
   if (is_left_arm) {
     angle_msg.rotate_0 = -1.0 * q(0);
     angle_msg.rotate_2 = -1.0 * q(1);
@@ -104,10 +114,15 @@ void MainNode::publishJointCommands(const Eigen::Vector3d &q, bool is_left_arm)
   }
 
   traj_point.time_from_start = rclcpp::Duration::from_seconds(0.1);
-  sim_msg.points.push_back(traj_point);
+  gazebo_msg.points.push_back(traj_point);
 
+  // rviz 메시지에 position 채우기
+  rviz_msg.position = traj_point.positions;
+
+  // 메시지 퍼블리시
   joint_angle_pub_->publish(angle_msg);
-  traj_pub_->publish(sim_msg);
+  traj_pub_->publish(gazebo_msg);
+  joint_state_pub_->publish(rviz_msg);
 }
 
 
@@ -150,23 +165,25 @@ void MainNode::mainLoop()
       }
       else
       {
-        // ----- 전진/후진/사이드/회전 판단하여 보행 명령 생성 -----
-        if(ee_target_.x > 0.1)
-        {
-          pub_walk_cmd(5.0, 0.0, 0.0,true); // 전진 명령
-          cout << "Target unreachable, sending forward command." << endl;
-          rclcpp::sleep_for(1s);
-        }
-        else if(ee_target_.y < 0.0)
-        {
-          pub_walk_cmd(0.0, 5.0, 0.0,true); // 전진 명령
-          cout << "Target unreachable, sending forward command." << endl;
-        }
-        else if(ee_target_.y > 0.0)
-        {
-          pub_walk_cmd(0.0, -5.0, 0.0,true); // 전진 명령
-          cout << "Target unreachable, sending forward command." << endl;
-        }
+        cout << "Target unreachable, generating trajectory." << endl;
+
+        // // ----- 전진/후진/사이드/회전 판단하여 보행 명령 생성 -----
+        // if(ee_target_.x > 0.1)
+        // {
+        //   pub_walk_cmd(5.0, 0.0, 0.0,true); // 전진 명령
+        //   cout << "Target unreachable, sending forward command." << endl;
+        //   rclcpp::sleep_for(1s);
+        // }
+        // else if(ee_target_.y < 0.0)
+        // {
+        //   pub_walk_cmd(0.0, 5.0, 0.0,true); // 전진 명령
+        //   cout << "Target unreachable, sending forward command." << endl;
+        // }
+        // else if(ee_target_.y > 0.0)
+        // {
+        //   pub_walk_cmd(0.0, -5.0, 0.0,true); // 전진 명령
+        //   cout << "Target unreachable, sending forward command." << endl;
+        // }
       }
       break;
 

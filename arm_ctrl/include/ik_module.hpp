@@ -25,9 +25,13 @@ private:
 
   int Reachable_count = 0;
 
+  Eigen::Vector3d min_angle = {-M_PI, -M_PI, -M_PI};
+  Eigen::Vector3d max_angle = {M_PI, M_PI, M_PI};
+
   Eigen::Matrix4d computeDH(double a, double alpha, double d, double theta);
   Eigen::Matrix4d forwardKinematics(const Eigen::Vector3d& q);
   Eigen::Matrix3d computeJacobian(const Eigen::Vector3d& q);
+  // std::vector<Eigen::Vector3d> computeIKTrajectory(const std::vector<Eigen::Vector3d>& trajectory_points, bool is_left_arm = false);
 };
 
 #endif  // ARM_CTRL__IK_MODULE_HPP_

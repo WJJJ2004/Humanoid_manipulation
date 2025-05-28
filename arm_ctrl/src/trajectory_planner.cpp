@@ -35,7 +35,7 @@ std::vector<Eigen::Vector3d> TrajectoryPlanner::generateStraightPushTrajectory(
     double len1 = offset2start.norm();
     double len2 = start2target.norm();
 
-    double v_mag = (len1 + len2) / duration;  // 평균 속도 (크기)
+    double v_mag = (len1 + len2) / duration;
 
     Eigen::Vector3d v0 = offset2start.normalized() * v_mag;
     Eigen::Vector3d v1 = start2target.normalized() * v_mag;
